@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var AdventOfCode = require('./advent-of-code');
+var AdventOfCode = require('../advent-of-code');
 
 AdventOfCode(function(input) {
   var uniqueHouses = function(deliveries) {
@@ -8,7 +8,7 @@ AdventOfCode(function(input) {
     });
     return Object.keys(houses).length;
   };
-  
+
   var coordinates = {
     2014: { santa: { x: 0, y: 0 } },
     2015: { santa: { x: 0, y: 0 }, robosanta: { x: 0, y: 0 } }

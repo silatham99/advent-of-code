@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var AdventOfCode = require('./advent-of-code');
+var AdventOfCode = require('../advent-of-code');
 
 AdventOfCode(function(input) {
   var position = 1;
