@@ -1,0 +1,13 @@
+{
+  "name": "AdventOfCode",
+  "version": "0.0.0",
+  "description": "Advent of Code solutions",
+  "engines": {
+    "node": "5.1.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "1.8.3"
+  }
+}
