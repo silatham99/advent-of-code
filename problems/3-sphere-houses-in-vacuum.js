@@ -8,6 +8,22 @@ AdventOfCode(function(input) {
     });
     return Object.keys(houses).length;
   };
+  var moveSanta = function(direction, current, deliveries) {
+    switch(direction) {
+      case '^':
+        deliveries.push({ x: current.x, y: ++current.y });
+        break;
+      case '>':
+        deliveries.push({ x: ++current.x, y: current.y });
+        break;
+      case 'v':
+        deliveries.push({ x: current.x, y: --current.y });
+        break;
+      case '<':
+        deliveries.push({ x: --current.x, y: current.y });
+        break;
+    }
+  };
 
   var coordinates = {
     2014: { santa: { x: 0, y: 0 } },
@@ -17,28 +33,8 @@ AdventOfCode(function(input) {
   var roboSanta = false;
 
   _.each(input, function(direction) {
-    var current = {
-      2014: coordinates[2014]['santa'],
-      2015: coordinates[2015][(roboSanta ? 'santa' : 'robosanta')]
-    };
-    switch(direction) {
-      case '^':
-        deliveries[2014].push({ x: current[2014].x, y: ++current[2014].y });
-        deliveries[2015].push({ x: current[2015].x, y: ++current[2015].y });
-        break;
-      case '>':
-        deliveries[2014].push({ x: ++current[2014].x, y: current[2014].y });
-        deliveries[2015].push({ x: ++current[2015].x, y: current[2015].y });
-        break;
-      case 'v':
-        deliveries[2014].push({ x: current[2014].x, y: --current[2014].y });
-        deliveries[2015].push({ x: current[2015].x, y: --current[2015].y });
-        break;
-      case '<':
-        deliveries[2014].push({ x: --current[2014].x, y: current[2014].y });
-        deliveries[2015].push({ x: --current[2015].x, y: current[2015].y });
-        break;
-    }
+    moveSanta(direction, coordinates[2014]['santa'], deliveries[2014]);
+    moveSanta(direction, coordinates[2015][(roboSanta ? 'santa' : 'robosanta')], deliveries[2015]);
     roboSanta = !roboSanta;
   });
 
