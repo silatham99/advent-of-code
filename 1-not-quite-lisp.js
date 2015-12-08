@@ -1,12 +1,7 @@
 var _ = require('underscore');
-var fs = require('fs');
+var AdventOfCode = require('./advent-of-code');
 
-fs.readFile('input/1-not-quite-lisp.txt', 'utf8', function (err, input) {
-  if (err) {
-    console.log(err);
-    process.exit(-1);
-  }
-
+AdventOfCode(function(input) {
   var position = 1;
   var basementPosition;
   var floor = _.reduce(input, function(sum, current) {
@@ -22,6 +17,4 @@ fs.readFile('input/1-not-quite-lisp.txt', 'utf8', function (err, input) {
   if (basementPosition) {
     console.log("Basement entered at position: ", basementPosition);
   }
-
-  process.exit(0);
 });

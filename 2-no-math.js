@@ -1,13 +1,8 @@
 var _ = require('underscore');
-var fs = require('fs');
+var AdventOfCode = require('./advent-of-code');
 
-var numericSort = function(x, y) { return x - y; };
-
-fs.readFile('input/2-no-math.txt', 'utf8', function (err, input) {
-  if (err) {
-    console.log(err);
-    process.exit(-1);
-  }
+AdventOfCode(function(input) {
+  var numericSort = function(x, y) { return x - y; };
 
   var boxes = _.map(input.trim().split('\n'), function(line) {
     var dimensions = line.toLowerCase().split('x');
@@ -34,6 +29,4 @@ fs.readFile('input/2-no-math.txt', 'utf8', function (err, input) {
 
   console.log("Total wrapping paper: ", totalWrappingPaper);
   console.log("Total ribbon: ", totalRibbon);
-
-  process.exit(0);
 });
