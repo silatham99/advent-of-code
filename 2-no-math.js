@@ -1,9 +1,8 @@
 var _ = require('underscore');
 var AdventOfCode = require('./advent-of-code');
+var numericSort = require('./lib/numeric-sort');
 
 AdventOfCode(function(input) {
-  var numericSort = function(x, y) { return x - y; };
-
   var boxes = _.map(input.trim().split('\n'), function(line) {
     var dimensions = line.toLowerCase().split('x');
     return {
